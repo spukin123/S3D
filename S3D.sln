@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "S3D.Core", "S3D.Math.Core\S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "S3D.Starup", "S3D.Starup\S3D.Starup.csproj", "{FA41EC51-8609-4B9E-9492-0890937E8BD2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "S3D.Desktop", "S3D.Desktop\S3D.Desktop.csproj", "{EF0A6EB5-55D4-412E-BC2A-C5813D67CFCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FA41EC51-8609-4B9E-9492-0890937E8BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA41EC51-8609-4B9E-9492-0890937E8BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA41EC51-8609-4B9E-9492-0890937E8BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF0A6EB5-55D4-412E-BC2A-C5813D67CFCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0A6EB5-55D4-412E-BC2A-C5813D67CFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0A6EB5-55D4-412E-BC2A-C5813D67CFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0A6EB5-55D4-412E-BC2A-C5813D67CFCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
