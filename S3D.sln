@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "S3D.Core", "S3D.Math.Core\S3D.Core.csproj", "{1CC91665-5BF9-4605-A466-21EE27951EEE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "S3D.Starup", "S3D.Starup\S3D.Starup.csproj", "{FA41EC51-8609-4B9E-9492-0890937E8BD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CC91665-5BF9-4605-A466-21EE27951EEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CC91665-5BF9-4605-A466-21EE27951EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CC91665-5BF9-4605-A466-21EE27951EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CC91665-5BF9-4605-A466-21EE27951EEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA41EC51-8609-4B9E-9492-0890937E8BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA41EC51-8609-4B9E-9492-0890937E8BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA41EC51-8609-4B9E-9492-0890937E8BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA41EC51-8609-4B9E-9492-0890937E8BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1F9645F-52C7-4FF6-9C2E-64055120CF6D}
+	EndGlobalSection
+EndGlobal
