@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Windows;
+using System.Windows.Media.Media3D;
 
 namespace S3D.Core.Base
 {
@@ -23,7 +25,7 @@ namespace S3D.Core.Base
             return angle * Math.PI / 180.0;
         }
 
-        public static List<double> GetDiffuseZeroToN(double from, double n, int discrete)
+        public static List<double> GetDiffuse(double from, double n, int discrete)
         {
             var returnData = new List<double>();
             double step = n / (discrete - 1);
@@ -56,31 +58,57 @@ namespace S3D.Core.Base
 
         public static Mesh3D GetFigure3DMesh(Func<double, double> spline, double from, double height, int discrete)
         {
-            Mesh3D mesh = new Mesh3D();
+            var diffuseValues = GetDiffuse(from, height, discrete);
+            double curSectorX = from;
 
-            mesh.AddVertice(new AltPoint3D(1, 2, 3));
-            mesh.AddVertice(new AltPoint3D(5, 6, 7));
-            mesh.AddVertice(new AltPoint3D(9, 10, 11));
+            List<Mesh3D> meshes = new List<Mesh3D>();
 
-            mesh.AddIndex(1);
-            mesh.AddIndex(2);
-            mesh.AddIndex(3);
-            mesh.AddIndex(4);
-            mesh.AddIndex(5);
-            mesh.AddIndex(6);
-            mesh.AddIndex(7);
-            mesh.AddIndex(8);
-            mesh.AddIndex(9);
+            for (var i = 0; i < diffuseValues.Count - 1; i++)
+            {
+                var h = Math.Abs(diffuseValues[i]) - Math.Abs(diffuseValues[i + 1]);
+                var r = spline(from);
+                var R = spline(from + h);
 
-            //Matrix3D
+                Vector3D vecR = new Vector3D(curSectorX, R, 0.0);
+                Vector3D vecr = new Vector3D(curSectorX, r, 0.0);
 
+                meshes.Add(CreateSectorMesh(vecR, vecr, (int)GetSidesCount(discrete)));
+                
+                curSectorX += h;
+            }
+            
+            return Mesh3D.JoinAll(meshes);
+        }
+
+        private static Mesh3D CreateSectorMesh(Vector3D largeVec, Vector3D smallVec, int sides)
+        {
+            Mesh3D mesh = new Mesh3D(sides);
+            
+            PushSectorPoints(mesh, largeVec);
+            PushSectorPoints(mesh, smallVec);
+            
             return mesh;
+        }
+
+        private static void PushSectorPoints(Mesh3D mesh, Vector3D vec)
+        {
+            Matrix3D matrix = Matrix3D.Identity;
+            Quaternion q = new Quaternion(new Vector3D(-1.0, 0.0, 0.0), 360.0 / mesh.SidesNumber);
+            matrix.Rotate(q);
+
+            mesh.AddVertice(new AltPoint3D(vec.X, vec.Y, vec.Z));
+            Vector3D trVec = vec;
+            for (int i = 1; i < mesh.SidesNumber; i++)
+            {
+                trVec = matrix.Transform(trVec);
+                mesh.AddVertice(new AltPoint3D(trVec.X, trVec.Y, trVec.Z)); ;
+            }
         }
 
         private static double GetDiscreteFigure3DVolumeCore(double from, double figureHeight, int discrete, Func<double, double> splineFunc)
         {
             var figureVolume = 0.0;
-            var diffuseValues = GetDiffuseZeroToN(from, figureHeight, discrete);
+            var diffuseValues = GetDiffuse(from, figureHeight, discrete);
 
             for (var i = 0; i < diffuseValues.Count - 1; i++)
             {

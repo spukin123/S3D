@@ -27,21 +27,21 @@ namespace S3D.Starup
             //    0, 2, 1000));
 
 
+            S3D.Core.Base.Mesh3D mesh = S3D.Core.Base.AlternativeMath.GetFigure3DMesh(circle, -3, 6, 4);
+
             PrintArray<S3D.Core.Base.AltPoint3D>(
-                S3D.Core.Base.AlternativeMath.GetFigure3DMesh(circle, 0, 3, 100).Vertices,
+                mesh.Vertices.ToArray(),
                 (x) =>
                 {
                     S3D.Core.Base.AltPoint3D vertice = (S3D.Core.Base.AltPoint3D)x;
-                    Console.Write("X={0} ", vertice.X);
-                    Console.Write("Y={0} ", vertice.Y);
-                    Console.Write("Z={0} ", vertice.Z);
+                    Console.Write("[X={0} Y={1} Z={2}]", vertice.X, vertice.Y, vertice.Z);
                     Console.WriteLine();
                 });
 
             Console.WriteLine();
 
             PrintArray<S3D.Core.Base.AltPoint3D>(
-                S3D.Core.Base.AlternativeMath.GetFigure3DMesh(circle, 0, 3, 100).Indices,
+                mesh.Indices.ToArray(),
                 (x) =>
                 {
                     int index = (int)x;
