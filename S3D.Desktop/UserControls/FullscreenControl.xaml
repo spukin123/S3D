@@ -11,14 +11,21 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <local:S3DViewport Grid.Row="0" Background="Gray"/>
+        <local:S3DViewport x:Name="S3DViewportInstance" Grid.Row="0" Background="Gray"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
             <Border Grid.Column="1"  Padding="5">
-                <Button Content="Exit" Click="Button_Click"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Apply" Click="Button_Click_1"/>
+                    <Button Content="Exit" Click="Button_Click" Grid.Column="1"/>
+                </Grid>
             </Border>
         </Grid>
     </Grid>

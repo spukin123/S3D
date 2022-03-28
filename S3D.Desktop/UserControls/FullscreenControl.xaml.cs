@@ -28,6 +28,11 @@ namespace S3D.Desktop.UserControls
             Close();
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            S3DViewportInstance.Apply();
+        }
+
         private void Close()
         {
             (Tag as Window).Close();

@@ -22,5 +22,15 @@ namespace S3D.Desktop.UserControls
         {
             InitializeComponent();
         }
+
+        public Viewport3D Viewport3DInstance
+        {
+            get { return S3DViewportInstance; }
+        }
+
+        public void Apply()
+        {
+
+        }
     }
 }
