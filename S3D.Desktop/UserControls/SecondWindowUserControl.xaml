@@ -1,17 +1,42 @@
-﻿<UserControl x:Class="WpfApp1.UserControls.SecondWindowUserControl"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1.UserControls"
+             xmlns:UserControls="clr-namespace:S3D.Desktop.UserControls" x:Class="WpfApp1.UserControls.SecondWindowUserControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Border BorderThickness="2" BorderBrush="White">
         <Grid Background="#202020">
-            <ScrollViewer>
-                <TextBlock TextWrapping="Wrap" FontSize="15pt" Foreground="White" Text="orem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut arcu dolor. In varius consequat sem, hendrerit condimentum ipsum consectetur at. Donec vitae tortor ex. Cras dictum pellentesque nunc, sit amet dignissim velit facilisis posuere. Nullam quis efficitur lorem, vitae laoreet mauris. Donec sed arcu congue, rhoncus nulla et, consectetur urna. Vivamus sodales imperdiet risus vel ultricies. Morbi eget turpis diam. Donec sollicitudin dolor vel aliquam rutrum. In hac habitasse platea dictumst. Ut tristique, odio at vestibulum efficitur, dolor risus dapibus tellus, vel vestibulum dui urna non dolor. Curabitur luctus lectus pulvinar augue porta posuere. Curabitur quis risus justo. Curabitur luctus sapien auctor, imperdiet elit a, consequat enim.
-                Mauris dictum nisl sapien, quis rutrum lorem hendrerit vel. Proin pharetra urna in enim imperdiet, rhoncus commodo lectus aliquet. Praesent sodales interdum finibus. Duis eget massa in dui pharetra pharetra. Sed venenatis eros sit amet magna venenatis, nec tempus purus auctor. Maecenas efficitur molestie magna. Phasellus ornare nibh nec nisi sodales, eleifend egestas tellus consequat. Nunc tellus ex, semper quis nisi quis, suscipit varius dui. Nam venenatis, est ac tristique luctus, mauris nisl posuere lacus, eget condimentum orci ipsum quis metus. Sed semper pretium porta. Suspendisse ultricies accumsan porta. "/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Row="0">
+                <TextBlock TextWrapping="Wrap" FontSize="15pt" Foreground="White" Text="orem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut arcu dolor. In varius consequat sem, hendrerit condimentum ipsum consectetur at. Donec vitae tortor ex. Cras dictum pellentesque nunc, sit amet dignissim velit facilisis posuere. Nullam quis efficitur lorem, vitae laoreet mauris. Donec sed arcu congue, rhoncus nulla et, consectetur urna. Vivamus sodales imperdiet risus vel ultricies. Morbi eget turpis diam. Donec sollicitudin dolor vel aliquam rutrum. In hac habitasse platea dictumst. Ut tristique, odio at vestibulum efficitur, dolor risus dapibus tellus, vel vestibulum dui urna non dolor. Curabitur luctus lectus pulvinar augue porta posuere. Curabitur quis risus justo. Curabitur luctus sapien auctor, imperdiet elit a, consequat enim.                 Mauris dictum nisl sapien, quis rutrum lorem hendrerit vel. Proin pharetra urna in enim imperdiet, rhoncus commodo lectus aliquet. Praesent sodales interdum finibus. Duis eget massa in dui pharetra pharetra. Sed venenatis eros sit amet magna venenatis, nec tempus purus auctor. Maecenas efficitur molestie magna. Phasellus ornare nibh nec nisi sodales, eleifend egestas tellus consequat. Nunc tellus ex, semper quis nisi quis, suscipit varius dui. Nam venenatis, est ac tristique luctus, mauris nisl posuere lacus, eget condimentum orci ipsum quis metus. Sed semper pretium porta. Suspendisse ultricies accumsan porta. "/>
             </ScrollViewer>
+            <Border Grid.Row="1" Background="Gray" Padding="3"
+                    BorderThickness="0, 3, 0, 0" BorderBrush="White">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <UserControls:S3DViewport/>
+                    <Border Grid.Row="1" Background="White" Height="50">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="1" Width="100" Padding="5">
+                                <Button Content="Fullscreen" Click="Button_Click"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
         </Grid>
     </Border>
 </UserControl>

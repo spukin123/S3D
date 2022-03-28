@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using S3D.Desktop.UserControls;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfApp1.UserControls
 {
@@ -21,6 +12,16 @@ namespace WpfApp1.UserControls
         public SecondWindowUserControl()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window fullscreenWindow = new Window();
+            FullscreenControl fs = new FullscreenControl();
+            fs.Tag = fullscreenWindow;
+            fullscreenWindow.Content = fs;
+            fullscreenWindow.WindowState = WindowState.Maximized;
+            fullscreenWindow.Show();
         }
     }
 }
