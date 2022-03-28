@@ -1,4 +1,5 @@
-﻿using System;
+﻿using S3D.Render;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,19 +19,18 @@ namespace S3D.Desktop.UserControls
     /// </summary>
     public partial class S3DViewport : UserControl
     {
+        private readonly Scene scene;
+
         public S3DViewport()
         {
             InitializeComponent();
-        }
 
-        public Viewport3D Viewport3DInstance
-        {
-            get { return S3DViewportInstance; }
+            scene = new Scene(S3DViewportInstance);
         }
 
         public void Apply()
         {
-
+            scene.RenderApply();
         }
     }
 }
