@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\S3D.Math.Core\S3D.Core.csproj" />
+    <ProjectReference Include="..\S3D.Render\S3D.Render.csproj" />
   </ItemGroup>
 
 </Project>

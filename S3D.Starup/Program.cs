@@ -27,7 +27,7 @@ namespace S3D.Starup
             //    0, 2, 1000));
 
 
-            S3D.Core.Base.Mesh3D mesh = S3D.Core.Base.AlternativeMath.GetFigure3DMesh(circle, -3, 6, 4);
+            S3D.Core.Base.Mesh3D mesh = S3D.Core.Base.AlternativeMath.GetFigure3DMesh(circle, 0, 3, 4);
 
             PrintArray<S3D.Core.Base.AltPoint3D>(
                 mesh.Vertices.ToArray(),
@@ -39,6 +39,8 @@ namespace S3D.Starup
                 });
 
             Console.WriteLine();
+
+            Console.WriteLine("Count: {0} ", mesh.Vertices.Count);
 
             PrintArray<S3D.Core.Base.AltPoint3D>(
                 mesh.Indices.ToArray(),
