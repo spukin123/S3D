@@ -10,7 +10,7 @@ namespace S3D.Core.Base
         private readonly List<int> indicesList = new List<int>();
 
         private int verticeCount = 0;
-        
+
         private readonly int sidesNumber;
         private int slicesCount = 2;
 
@@ -49,8 +49,16 @@ namespace S3D.Core.Base
             {
                 for (int k = i * sidesNumber; k < sidesNumber * (i + 1); k++)
                 {
-                    indicesList.AddRange(CreateLeftPoly(k * 2));
-                    indicesList.AddRange(CreateRightPoly((k * 2)));
+                    if (k == sidesNumber * (i + 1) - 1)
+                    {
+                        indicesList.AddRange(new int[] { k, k + sidesNumber, sidesNumber });
+                        indicesList.AddRange(new int[] { k, sidesNumber, 0 });
+                    }
+                    else 
+                    {
+                        indicesList.AddRange(CreateLeftPoly(k));
+                        indicesList.AddRange(CreateRightPoly(k));
+                    }
                 }
             }
 
@@ -59,12 +67,12 @@ namespace S3D.Core.Base
 
         private int[] CreateLeftPoly(int index)
         {
-            return new int[] { index, index + 1, index + 3 };
+            return new int[] { index, index + sidesNumber, index + sidesNumber + 1 };
         }
 
         private int[] CreateRightPoly(int index)
         {
-            return new int[] { index, index + 3, index + 2 };
+            return new int[] { index, index + sidesNumber + 1, index + 1 };
         }
 
         private List<AltPoint3D> GetMeshEndVertices()
@@ -105,7 +113,7 @@ namespace S3D.Core.Base
         }
 
         public List<AltPoint3D> Vertices { get { return verticesList; } }
-        
+
         public List<int> Indices { get { return GetIndices(); } }
     }
 }

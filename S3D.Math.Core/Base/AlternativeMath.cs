@@ -65,12 +65,12 @@ namespace S3D.Core.Base
 
             for (var i = 0; i < diffuseValues.Count - 1; i++)
             {
-                var h = Math.Abs(diffuseValues[i]) - Math.Abs(diffuseValues[i + 1]);
+                var h = Math.Abs(diffuseValues[i + 1]) - Math.Abs(diffuseValues[i]);
                 var r = spline(from);
                 var R = spline(from + h);
 
-                Vector3D vecR = new Vector3D(curSectorX, R, 0.0);
-                Vector3D vecr = new Vector3D(curSectorX, r, 0.0);
+                Vector3D vecR = new Vector3D(curSectorX, 0.0, R);
+                Vector3D vecr = new Vector3D(curSectorX + h, 0.0, r);
 
                 meshes.Add(CreateSectorMesh(vecR, vecr, (int)GetSidesCount(discrete)));
                 
@@ -93,7 +93,7 @@ namespace S3D.Core.Base
         private static void PushSectorPoints(Mesh3D mesh, Vector3D vec)
         {
             Matrix3D matrix = Matrix3D.Identity;
-            Quaternion q = new Quaternion(new Vector3D(-1.0, 0.0, 0.0), 360.0 / mesh.SidesNumber);
+            Quaternion q = new Quaternion(new Vector3D(1.0, 0.0, 0.0), 360.0 / mesh.SidesNumber);
             matrix.Rotate(q);
 
             mesh.AddVertice(new AltPoint3D(vec.X, vec.Y, vec.Z));

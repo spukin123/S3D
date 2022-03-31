@@ -6,4 +6,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\S3D.Math.Core\S3D.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Camera\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.DirectX">
+      <HintPath>..\..\..\LiteConstruct\leobjectbuilder-code-r110-Trunk\leobjectbuilder-code-r110-Trunk\Output\Microsoft.DirectX.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
