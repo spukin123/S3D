@@ -10,7 +10,7 @@ namespace S3D.Starup
         private static Func<double, double> squareRoot = (x) => { return Math.Sqrt(x); };
         private static Func<double, double> exp = (x) => { return Math.Pow(x, 2); };
 
-        private static int PhysObjectsCount = 700;
+        private static int PhysObjectsCount = 1000;
 
         static void Main(string[] args)
         {
@@ -63,7 +63,7 @@ namespace S3D.Starup
             {
                 for (int i = 0; i < PhysObjectsCount; i++)
                 {
-                    for (int k = 0; k < PhysObjectsCount; k++)
+                    for (int k = i; k < PhysObjectsCount; k++)
                     {
                         Load();
                     }
@@ -80,17 +80,31 @@ namespace S3D.Starup
             //});
         }
 
+        private static void ComputeEqualities()
+        {
+            //Nu dopustim OK.
+            const int EqPower = 10;
+            for (int i = 0; i < EqPower; i++)
+            {
+                var y = 1 / 3.0;
+                var c = Math.Sqrt(Math.PI);
+                Math.Cos(Math.PI);
+            }
+        }
+
         private static void Load()
         {
-            int sidesCount = 6;
-            for (int i = 0; i < sidesCount; i++)
-            {
-                for (int k = 0; k < sidesCount; k++)
-                {
-                    Math.Sqrt(Math.PI);
-                    var res = Math.PI / Math.PI;
-                }
-            }
+            ComputeEqualities();
+
+            //int sidesCount = 6;
+            //for (int i = 0; i < sidesCount; i++)
+            //{
+            //    for (int k = 0; k < sidesCount; k++)
+            //    {
+            //        Math.Sqrt(Math.PI);
+            //        var res = Math.PI / Math.PI;
+            //    }
+            //}
 
             //Tut zhopa.
             //Math.Cos(Math.PI);

@@ -6,10 +6,4 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="Microsoft.DirectX">
-      <HintPath>..\..\..\LiteConstruct\leobjectbuilder-code-r110-Trunk\leobjectbuilder-code-r110-Trunk\Output\Microsoft.DirectX.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

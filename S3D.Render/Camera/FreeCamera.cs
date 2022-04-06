@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Microsoft.DirectX;
+//using Microsoft.DirectX;
 using Gds.LiteConstruct.BusinessObjects;
 using System.Windows.Media.Media3D;
 

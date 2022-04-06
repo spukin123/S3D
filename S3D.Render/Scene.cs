@@ -1,4 +1,5 @@
-﻿using Gds.LiteConstruct.Rendering;
+﻿using Gds.LiteConstruct.BusinessObjects;
+using Gds.LiteConstruct.Rendering;
 using S3D.Core.Base;
 using System;
 using System.Collections.Generic;
@@ -21,13 +22,15 @@ namespace S3D.Render
 
         private readonly RotatableCamera camera;
 
+        private const double RotateSpeed = 1.2;
+
         public Scene(Viewport3D v3D)
         {
             this.v3D = v3D;
 
-            PerspectiveCamera pCamera = v3D.Camera as PerspectiveCamera;
-            camera = new RotatableCamera(pCamera, ConvertHelper.ToDXVector(pCamera.Position), 
-                ConvertHelper.ToDXVector(pCamera.LookDirection));
+            //PerspectiveCamera pCamera = v3D.Camera as PerspectiveCamera;
+            //camera = new RotatableCamera(pCamera, ConvertHelper.ToDXVector(pCamera.Position), 
+                //ConvertHelper.ToDXVector(pCamera.LookDirection));
         }
 
         public void RenderApply()
@@ -41,9 +44,10 @@ namespace S3D.Render
             mesh3D.TriangleIndices = ConvertHelper.GetIndices(mesh.Indices);
         }
 
-        public void Rotate(double x, double y, double z)
+        public void RotateCamera(double deltaX, double deltaY)
         {
-            ((model.Transform as RotateTransform3D).Rotation as AxisAngleRotation3D).Angle = z;
+            camera.RotateCameraHorizontally(Angle.FromDegrees((int)(deltaX * RotateSpeed)));
+            camera.RotateCameraVertically(Angle.FromDegrees((int)(deltaY * RotateSpeed)));
         }
     }
 }

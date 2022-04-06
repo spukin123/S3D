@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Media.Media3D;
 using Gds.LiteConstruct.BusinessObjects;
-using Microsoft.DirectX;
 
 namespace Gds.LiteConstruct.Rendering
 {

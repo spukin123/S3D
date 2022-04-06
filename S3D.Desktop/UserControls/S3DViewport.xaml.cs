@@ -21,6 +21,9 @@ namespace S3D.Desktop.UserControls
     {
         private readonly Scene scene;
 
+        private bool isMLBDown;
+        private Point cursorPos;
+
         public S3DViewport()
         {
             InitializeComponent();
@@ -31,6 +34,27 @@ namespace S3D.Desktop.UserControls
         public void Apply()
         {
             scene.RenderApply();
+        }
+
+        private void S3DViewportInstance_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            cursorPos = e.GetPosition(this);
+            isMLBDown = true;
+        }
+
+        private void S3DViewportInstance_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            isMLBDown = false;
+        }
+
+        private void S3DViewportInstance_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isMLBDown)
+            {
+                scene.RotateCamera(e.GetPosition(this).X - cursorPos.X, 
+                    e.GetPosition(this).Y - cursorPos.Y);
+                cursorPos = e.GetPosition(this);
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Media.Media3D;
 using System.Linq;
 using System.Windows.Media;
-using Microsoft.DirectX;
+using Gds.LiteConstruct.BusinessObjects;
 
 namespace S3D.Render
 {
