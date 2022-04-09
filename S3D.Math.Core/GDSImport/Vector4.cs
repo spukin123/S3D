@@ -4,10 +4,10 @@ namespace Gds.LiteConstruct.BusinessObjects
 {
     internal class Vector4
     {
-        private int z;
+        private float z;
         private float v;
 
-        public Vector4(int x, int y, int z, float v)
+        public Vector4(float x, float y, float z, float v)
         {
             X = x;
             Y = y;
@@ -15,9 +15,9 @@ namespace Gds.LiteConstruct.BusinessObjects
             this.v = v;
         }
 
-        public int X { get; internal set; }
-        public int W { get; internal set; }
-        public int Y { get; internal set; }
+        public float X { get; internal set; }
+        public float W { get; internal set; }
+        public float Y { get; internal set; }
 
         internal static Vector4 Transform(Vector4 vector4, Matrix mat)
         {
